@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<title> Binary Arithmetics </title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link href='https://fonts.googleapis.com/css?family=Aladin' rel='stylesheet'>
+		<link rel="stylesheet" type="text/css" href="reset.css">
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+		<link href="https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<link href="https://fonts.googleapis.com/css?family=Capriola|Open+Sans|Righteous|Roboto" rel="stylesheet">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+		<link href="https://fonts.googleapis.com/css?family=Exo:900" rel="stylesheet">
+
+		<style media="screen">
+
+			*{
+			  -webkit-box-sizing: border-box;
+			  -moz-box-sizing: border-box;
+			  -o-box-sizing: border-box;
+			  -ms-box-sizing: border-box;
+			  box-sizing: border-box;
+			}
+
+			html, body{
+				height: 100%;
+				width: 100%;
+				margin: 0;
+				padding: 0;
+				line-height: 180%;
+				color: #666;
+				text-align: center;
+				transition: all 0.5s ease;
+			}
+
+			.parallax1{
+			  background-image: url("img/bg2.jpg");
+			  min-height: 100%;
+			}
+
+			.parallax2{
+			  background-image: url("img/img-12.jpg");
+			  min-height: 60%;
+			}
+
+			.parallax3{
+			  background-image: url("img/img-12.jpg");
+			  min-height: 40%;
+			}
+
+			.parallax4{
+			  background-image: url("img/img-12.jpg");
+			  min-height: 100%;
+			}
+
+
+			.parallax1, .parallax2, .parallax3, .parallax4{
+			  position: relative;
+			  opacity: .75;
+			  background-position: center;
+			  -webkit-background-size: cover;
+			  -moz-background-size: cover;
+			  -o-background-size: cover;
+			  background-size: cover;
+			  background-repeat: no-repeat;
+			  background-attachment: fixed;
+			}
+
+			#logo{
+				position: fixed;
+				height: auto;
+				width: auto;
+				z-index: 10;
+				padding: 8px 8px 0 8px;
+				margin:auto;
+				vertical-align: middle;
+				top: 3%;
+				left: 5%;
+				border: 5px solid #fff;
+				border-radius: 5%;
+				font-family: 'Righteous', cursive;
+			}
+
+			#logo p{
+			  font-size: 1.5em;
+			  text-transform:capitalize;
+			  text-align: center;
+			  letter-spacing: 0.1em;
+			  font-weight: 900;
+			  color: #fff;
+			 }
+
+			#menu{
+			 position: fixed;
+			 top: 3%;
+			 right: 3%;
+			 width: auto;
+			 height: auto;
+			 cursor: pointer;
+			 z-index: 10;
+			}
+
+			.menu_icon {
+			  height: 50px;
+			  width: 50px;
+			   display: inline-block;
+			  vertical-align: middle;
+			  border: 3px solid #fff;
+			  border-radius: 50%;
+			  -moz-border-radius: 50%;
+			  -webkit-border-radius: 50%;
+			  -ms-transform: rotate(-180deg);
+			  -moz-transform: rotate(-180deg);
+			  -webkit-transform: rotate(-180deg);
+			   transform: rotate(-180deg);
+			  transition-timing-function: ease-in-out;
+			  -webkit-transition-delay: 0.1s; /* Safari */
+			   transition-delay: 0.1s;
+			  transition-duration: 0.4s;
+			  -webkit-transition-duration: 0.4s;
+			  -moz-transition-duration: 0.4s;
+			}
+
+			.menu_icon:hover{
+				 border: 1px solid #fff;
+				padding: 5.4px 0 0 3px;
+				-ms-transform: rotate(180deg);
+				 -webkit-transform: rotate(180deg);
+				 transform: rotate(180deg);
+				 -ms-transform: scale(1.3);
+				 -moz-transform: scale(1.3);
+				 -webkit-transform: scale(1.3);
+				 transform: scale(1.3);
+				transition-timing-function: ease-in-out;
+				-webkit-transition-delay: 0.1s; /* Safari */
+				 transition-delay: 0.1s;
+				transition-duration: 0.4s;
+			}
+
+			.bar1, .bar3 {
+			   width: 16px;
+			   height: 1px;
+			   background-color: #fff;
+			   margin: 15px 0 0 12px;
+			}
+
+			.bar3 {
+				margin: 6px 0 0 12px;
+			}
+
+			/* Navigation Item Animation */
+			div.borderXwidth a:before, div.borderXwidth a:after
+			{
+			   position: absolute;
+			   opacity: 0;
+			   width: 0%;
+			   height: 2px;
+			   content: '';
+			   background: #FFF;
+			   transition: all 0.8s;
+			}
+
+			div.borderXwidth a:before
+			{
+			   left: 0px;
+			   top: 0px;
+			}
+
+			div.borderXwidth a:after
+			{
+			   right: 0px;
+			   bottom: 0px;
+			}
+
+			div.borderXwidth a:hover:before, div.borderXwidth a:hover:after
+			{
+			   opacity: 1;
+			   width: 100%;
+			}
+
+			.overlay {
+				 height: 0%;
+				 width: 100%;
+				 position: fixed;
+				 z-index: 1000;
+				 bottom: 0;
+				 left: 0;
+				 background-color: rgb(0,0,0);
+				 background-color: rgba(0,0,0, 0.9);
+				 overflow-y: hidden;
+				 transition: 0.5s;
+			}
+
+			.overlay-content {
+				 position: relative;
+				 top: 25%;
+				 width: 100%;
+				 text-align: center;
+				 margin-top: 30px;
+			}
+
+			.overlay a {
+				 padding: 8px;
+				 text-decoration: none;
+				 font-size: 36px;
+				 color: #818181;
+				 display: block;
+				 transition: 0.3s;
+			}
+
+			.overlay a:hover, .overlay a:focus {
+			 	color: #f1f1f1;
+			}
+
+			.overlay .closebtn {
+				 position: absolute;
+				 top: 20px;
+				 right: 45px;
+				 font-size: 60px;
+			}
+
+			@media screen and (max-height: 450px) {
+			 .overlay {overflow-y: auto;}
+			 .overlay a {font-size: 20px}
+			 .overlay .closebtn {
+			   font-size: 40px;
+			   top: 15px;
+			   right: 35px;
+			   }
+			}
+
+			.heading{
+			  position: absolute;
+			  color: #fff;
+			  top: 58%;
+			  width: 100%;
+			  font-size: 550%;
+			  font-family: 'Capriola', sans-serif;
+			  text-transform: uppercase;
+			  letter-spacing: 8px;
+			  font-weight: 800px;
+			  text-shadow: 0 0 10px #000;
+			  line-height: 40px;
+			}
+
+			.opt_butt1{
+			  position: absolute;
+			  color: #fff;
+			  font-family: 'Capriola', sans-serif;
+			  font-weight: 600 !important;
+			  display: inline-block;
+			  height: 50px;
+			  line-height: 40px;
+			  text-align: center;
+			  padding: 0 20px;
+			  cursor: pointer;
+			  bottom: 23%;
+			  border: 3px solid #fff;
+			  border-radius: 10px 10px;
+			  -moz-border-radius: 10px 10px;
+			  -webkit-border-radius: 10px 10px;
+			  -o-border-radius: 10px 10px;
+			  transition: 0.7s;
+			  -webkit-transition: 0.7s;
+			  -moz-transition: 0.7s;
+			  -o-transition: 0.7s;
+			}
+
+			.opt_butt1:hover{
+			  border: 3px solid #fff;
+			  border-top-color: #FF7F50;
+			  border-bottom-color: #00CED1;
+			  border-right-color: #FF7F50;
+			  border-left-color: #00CED1;
+			  color: #fff;
+			  box-shadow: 4px 4px 2px 2px rgba(0, 0, 0, 0.3);
+			  -webkit-transition: 0.7s;
+			  -moz-transition: 0.7s;
+			  -o-transition: 0.7s;
+			  transition: 0.7s;
+			}
+
+			.opt_butt1::before, .opt_butt1::after{
+			  width: 100%;
+			  height:100%;
+			  z-index: 3;
+			  content: '';
+			  position: absolute;
+			  top:0;
+			  left:0;
+			  box-sizing: border-box;
+			  transform: scale(0);
+			  -webkit-transform: scale(0);
+			  -moz-transform: scale(0);
+			  -o-transform: scale(0);
+			  -webkit-transition: 0.7s;
+			  -moz-transition: 0.7s;
+			  -o-transition: 0.7s;
+			  transition: 0.7s;
+			}
+
+			.anim1_butt::before{
+			  border-bottom: 3px solid #00CED1;
+			  border-left: 3px solid #00CED1;
+			  transform-origin: 100% 0%;
+			  -webkit-transform-origin: 100% 0%;
+			  -moz-transform-origin: 100% 0%;
+			  -o-transform-origin: 100% 0%;
+			}
+
+
+			.anim1_butt::after{
+			  border-top: 3px solid #FF7F50;
+			  border-right: 3px px solid #FF7F50;
+			  transform-origin: 0% 100%;
+			-webkit-transform-origin: 0% 100%;
+			-moz-transform-origin: 0% 100%;
+			-o-transform-origin: 0% 100%;
+			}
+
+			.opt_butt1:hover::after, .opt_butt1:hover::before{
+			  border-radius: 10px 10px;
+			  -moz-border-radius: 10px 10px;
+			  -webkit-border-radius: 10px 10px;
+			  -o-border-radius: 10px 10px;
+			  transform: scale(1);
+			  -webkit-transform: scale(1);
+			  -moz-transform: scale(1);
+			  -o-transform: scale(1);
+			}
+
+			.butt_col1:hover{
+			  color: #00CED1;
+			}
+
+			.butt_col2:hover{
+			  color: #FF7F50;
+			}
+
+			#sec2{
+				background-color: rgba(255, 127, 80, 0.8);
+				box-shadow: 6px 6px 5px #696969;
+				color: #fff;
+			}
+
+			.butt{
+				border: 2px solid #00CED1;
+				background-color: #fff;
+				margin: 20px 0;
+				border-radius: 25px;
+				color: #00CED1;
+			cursor: pointer;
+			}
+
+			.butt:hover{
+				border: 2px solid #fff;
+				background-color: #00CED1;
+				box-shadow: 6px 6px 5px #696969;
+				color: #fff;
+			}
+
+			a{
+				text-decoration: none;
+			}
+
+			#basics{
+				color: #fff;
+			}
+
+			.vid_container{
+				background-color: rgba(255, 127, 80, 0.8);
+				display: none;
+			}
+
+			.vid_box{
+				position: relative;
+				height: 300px;
+				width: 95%;
+				border: 2px solid #fff;
+				margin-bottom: 20px;
+				border-radius: 25px;
+				background-color: rgba(0, 206, 209, 0.6);
+				color: white;
+			}
+
+			.vid_box:hover{
+				box-shadow: 5px 5px 6px #696969;
+			}
+
+			.vid_label h3{
+				position: relative;
+			padding-top: 30%;
+				color: #fff;
+				font-size: 2em;
+				text-align: center;
+				font-weight: 900;
+			}
+
+			.vid_overlay{
+				position: absolute;
+				cursor: pointer;
+				transition: all 0.5s ease;
+				background:  rgba(0, 0, 0, 0.6);
+				opacity: 0;
+				border-radius: 25px;
+			}
+
+			.vid_box:hover .vid_overlay{
+				opacity: 1;
+			}
+
+			.vid_title{
+				color: #fff;
+				font-size: 3em;
+				font-family: sans-serif;
+				margin-bottom: 5%;
+			}
+
+			.vid_brief{
+				color: #fff;
+				font-size: 1.5em;
+				font-family: sans-serif;
+				margin-bottom: 5%;
+			}
+
+			.vid_text{
+				color: #fff;
+				font-family: sans-serif;
+				font-weight: 600;
+				position: absolute;
+				top: 30%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				font-size: 20px;
+			}
+
+			.fa{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				font-size: 84px;
+				color: #fff;
+			cursor: pointer;
+			}
+
+			.overlay_Left{
+				height: 100%;
+				width: 0;
+				top: 0;
+				left: 0;
+			}
+
+			.overlay_Top{
+				height: 0;
+				width: 100%;
+				top: 0;
+			}
+
+			.overlay_Right{
+				height: 100%;
+				width: 0;
+				top: 0;
+				right: 0;
+			}
+
+			.vid_box:hover .overlay_Left{
+				width: 100%;
+			}
+
+			.vid_box:hover .overlay_Top{
+				height: 100%;
+			}
+
+			.vid_box:hover .overlay_Right{
+				width: 100%;
+			}
+
+			.binary_desc{
+				text-align: left;
+				color: #fff;
+				font-size: 20px;
+				margin: 0;
+				padding: 5% 10%;
+			}
+			
+			.binary_desc strong{
+				font-size: 20px;
+				font-weight: 500;
+			}
+
+
+
+
+
+	</style>
+
+
+	</head>
+
+    <body>
+		<a href = "#top">
+			<div id = "logo">
+				<p> Group 3 </p>
+			</div>
+		</a>
+
+		<span id = "menu" style="cursor:pointer" onclick="openNav()">
+			<div class="menu_icon">
+			  <div class="bar1"></div>
+			  <div class="bar3"></div>
+			</div>
+		</span>
+
+        <div id="myNav" class="overlay">
+            <!-- Button to close the overlay navigation -->
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+            <!-- Overlay content -->
+            <div class="overlay-content borderXwidth">
+              <a href="#sec2">Basics</a>
+              <a href="#">Unsigned Binary Multiplication</a>
+              <a href="#">Booth's Algorithm</a>
+              <a href="#">Unsigned Binary Division</a>
+            </div>
+        </div>
+
+		<div class = "parallax1" id = "top">
+			<div class="heading">
+				Binary Arithmetics
+			</div>
+				<a href= "#sec2"><div class = "opt_butt1 anim1_butt"> <span class ="butt_col1">Lets</span> <span class ="butt_col2">Get</span> <span class ="butt_col1">Started</span></div></a>
+		</div>
+
+      	<section id = "sec2">
+		<div class = "container-fluid">
+			<!-- row 1 -->
+			<div class = "row">
+				<div class = "col-md-2">
+				</div>
+				<div class = "col-md-8">
+					<h1 id = "basics">Do you need to learn the basics?</h1>
+				</div>
+				<div class = "col-md-2">
+				</div>
+			</div>
+
+			<!-- row 2 -->
+			<div class = "row">
+				<div class = "col-md-4">
+				</div>
+				<div class = "col-md-4">
+					<a href = "#sec3">
+						<div class = "butt butt1">Not Really</div>
+					</a>
+				</div>
+				<div class = "col-md-4">
+				</div>
+			</div>
+
+			<!-- row 3  of buttons-->
+			<div class = "row">
+				<div class = "col-md-2">
+					<div class = "butt butt2">Binary Addition</div>
+				</div>
+				<div class = "col-md-2">
+					<div class = "butt butt3">Binary Subtraction</div>
+				</div>
+				<div class = "col-md-2">
+					<div class = "butt butt4">Binary Multiplication</div>
+				</div>
+        		<div class = "col-md-2">
+					<div class = "butt butt5">Binary Division</div>
+				</div>
+        		<div class = "col-md-2">
+					<div class = "butt butt6">Binary Complement</div>
+				</div>
+        		<div class = "col-md-2">
+					<div class = "butt butt7">Bit Shifting</div>
+				</div>
+			</div>
+		</div>
+      </section>
+
+
+		<section class = "vid_container Addition">
+			<div class = "container">
+				<div class = "row">
+					<div class = "col-md-4">
+					</div>
+					<div class = "col-md-4">
+						<h2 class = "vid_title"> Binary Addition</h2>
+					</div>
+					<div class = "col-md-4">
+					</div>
+				</div>
+				<div class = "row">
+					<div class = "col-md-12">
+						<p class = "vid_brief">To divide two numbers, which result is an exact division, we basically need to follow four steps: division, multiplication, subtraction, and next digit.</p>
+					</div>
+				</div>
+				<div class = "row">
+					<div class = "col-md-4">
+						<div class = "vid_box">
+							<div class = "vid_label"> <h3>6 / 3 </h3> </div>
+							<div class = "vid_overlay overlay_Left">
+							  <div class="vid_text">watch tutorial</div>
+							   <a href = ""><i class="fa fa-play-circle-o"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class = "col-md-4">
+						<div class = "vid_box">
+							<div class = "vid_label"> <h3> 8 / 4 </h3> </div>
+							<div class = "vid_overlay overlay_Top">
+							  <div class="vid_text">watch tutorial</div>
+							   <a href = ""><i class="fa fa-play-circle-o"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class = "col-md-4">
+						 <div class = "vid_box">
+							<div class = "vid_label"> <h3> 10 / 5 </h3> </div>
+							<div class = "vid_overlay overlay_Right">
+							  <div class="vid_text">watch tutorial</div>
+							   <a href = ""><i class="fa fa-play-circle-o"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<div class = "binary_desc">
+		<p><strong>Binary addition</strong> calculations work in the same way, except that only 0's and 1's can be used, instead of the whole spectrum of 0-9. This actually makes binary addition much simpler than decimal addition, as we only need to remember the following:</p>
+					<p> 0 + 0 = 0<br />
+						0 + 1 = 1<br />
+						1 + 0 = 1<br />
+						1 + 1 = 10
+					</p>
+					<p> As an example of binary addition we have, </p>
+					<p> &nbsp; 101<br />
+						<u>+101</u>
+					</p>
+					<p> a) To add these two numbers, we first consider the "ones" column and calculate 1 + 1, which (in binary) results in <span style="color:red">1</span>0. We "carry" the <span style="color:red">1</span> to the "tens" column, and the leave the 0 in the "ones" column. </p>
+					<p> b) Moving on to the "tens" column, we calculate <span style="color:red">1</span> + (0 + 0), which gives 1. Nothing "carries" to the "hundreds" column, and we leave the 1 in the "tens" column. </p>
+					<p> c) Moving on to the "hundreds" column, we calculate 1 + 1, which gives <span style="color:red">1</span>0. We "carry" the <span style="color:red">1</span> to the "thousands" column, leaving the 0 in the "hundreds" column. </p>
+					<p> &nbsp; 101<br />
+						<u>+101</u><br />
+						1010
+					</p>
+					<p>Another example of binary addition:</p>
+					<p> &nbsp; 1011<br />
+						<u>+1011</u><br />
+						10110
+					</p>
+					<p> Note that in the "tens" column, we have <span style="color:red">1</span> + (1 + 1), where the first <span style="color:red">1</span> is "carried" from the "ones" column. Recall that in binary, </p>
+					<p> 1 + 1 + 1 = 10 + 1<br />
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 11
+					</p>
+					<br/>
+		</div>
+		</section>
+
+		<section class = "vid_container Subtraction">
+			<div class = "container">
+				<div class = "row">
+					<div class = "col-md-4">
+					</div>
+					<div class = "col-md-4">
+						<h2 class = "vid_title"> Binary Subtraction</h2>
+					</div>
+					<div class = "col-md-4">
+					</div>
+				</div>
+				<div class = "row">
+			<div class = "col-md-12">
+					<p class = "vid_brief">To divide two numbers, which result is an exact division, we basically need to follow four steps: division, multiplication, subtraction, and next digit.</p>
+			</div>
+				</div>
+				<div class = "row">
+					<div class = "col-md-4">
+			  <div class = "vid_box">
+							<div class = "vid_label"> <h3>6 / 3 </h3> </div>
+							<div class = "vid_overlay overlay_Left">
+							  <div class="vid_text">watch tutorial</div>
+							   <a href = ""><i class="fa fa-play-circle-o"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class = "col-md-4">
+			  <div class = "vid_box">
+							<div class = "vid_label"> <h3> 8 / 4 </h3> </div>
+							<div class = "vid_overlay overlay_Top">
+							  <div class="vid_text">watch tutorial</div>
+							   <a href = ""><i class="fa fa-play-circle-o"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class = "col-md-4">
+			  <div class = "vid_box">
+							<div class = "vid_label"> <h3> 10 / 5 </h3> </div>
+							<div class = "vid_overlay overlay_Right">
+							  <div class="vid_text">watch tutorial</div>
+							   <a href = ""><i class="fa fa-play-circle-o"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<div class = "binary_desc">
+		  <p>Similar to binary addition, <strong>binary subtraction</strong> calculations are simple as well, as long as we remember how subtraction and the base 2 number system. Let's first look at an easy example.</p>
+					<p> &nbsp; 111<br />
+						&nbsp;<u>- 10</u><br />
+						&nbsp; 101
+					</p>
+					<p> Note that the difference is the same if this was decimal subtraction. Also similar to decimal subtraction is the concept of "borrowing.&quot; Watch as &quot;borrowing" occurs when a larger digit, say 8, is subtracted from a smaller digit, say 5, as shown below in decimal subtraction. </p>
+					<p> &nbsp; &nbsp; 35<br />
+						&nbsp; <u>-&nbsp;&nbsp; 8</u><br />
+						&nbsp; &nbsp; 27
+					</p>
+					<p> For 10 minus 1, 1 is borrowed from the "tens" column for use in the "ones" column, leaving the "tens" column with only 2. The following examples show "borrowing" in binary subtraction. </p>
+					<p> &nbsp; &nbsp; 10 &nbsp; &nbsp; &nbsp; 100 &nbsp; &nbsp; &nbsp; &nbsp;1010<br />
+						&nbsp;&nbsp; <u>-&nbsp; 1</u> &nbsp; &nbsp; &nbsp; <u>- 10</u> &nbsp; &nbsp; &nbsp; <u>- 110</u><br />
+						&nbsp; &nbsp; &nbsp; 1 &nbsp; &nbsp; &nbsp; &nbsp; 10 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 100
+					</p>
+					<br />
+		</div>
+		</section>
+
+		<section class = "vid_container multiplication">
+		<div class = "container">
+			<div class = "row">
+				<div class = "col-md-3">
+				</div>
+				<div class = "col-md-6">
+					<h2 class = "vid_title"> Binary Multiplication</h2>
+				</div>
+				<div class = "col-md-3">
+				</div>
+			</div>
+			<div class = "row">
+		<div class = "col-md-12">
+				 <p class = "vid_brief">To perform a binary multiplication problem, we need to understand how addition works with binary numbers and follow the same process of multiplication and addition we would use with decimal numbers.</p>
+		</div>
+			</div>
+			<div class = "row">
+				<div class = "col-md-4">
+					<div class = "vid_box">
+						<div class = "vid_label"> <h3> 5 * 7</h3> </div>
+						<div class = "vid_overlay overlay_Left">
+						  <div class="vid_text">watch tutorial</div>
+						   <a href = ""><i class="fa fa-play-circle-o"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class = "col-md-4">
+					<div class = "vid_box">
+						<div class = "vid_label"> <h3> 4 * 2</h3> </div>
+						<div class = "vid_overlay overlay_Top">
+						  <div class="vid_text">watch tutorial</div>
+						   <a href = ""><i class="fa fa-play-circle-o"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class = "col-md-4">
+					<div class = "vid_box">
+						<div class = "vid_label"> <h3> 1 * 5</h3> </div>
+						<div class = "vid_overlay overlay_Right">
+						  <div class="vid_text">watch tutorial</div>
+						   <a href = ""><i class="fa fa-play-circle-o"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class = "binary_desc">
+				<p><strong>Binary multiplication</strong> is actually much simpler to calculate than decimal multiplication. In the case of decimal multiplication, we need to remember 3 x 9 = 27, 7 x 8 = 56, and so on. In binary multiplication, we only need to remember the following,
+				<p> 0 x 0 = 0<br />
+					0 x 1 = 0<br />
+					1 x 0 = 0<br />
+					1 x 1 = 1
+				</p>
+				<p> Note that since binary operates in base 2, the multiplication rules we need to remember are those that involve 0 and 1 only. As an example of binary multiplication we have 101 times 11, </p>
+				<p>&nbsp; 101<br />
+					&nbsp; <u>x<span style="color:red">1</span><span style="color:blue">1</span></u>
+				</p>
+				<p> First we multiply 101 by <span style="color:blue">1</span>, which produces 101. Then we put a <span style="color:green">0</span> as a placeholder as we would in decimal multiplication, and multiply 101 by <span style="color:red">1</span>, which produces 101. </p>
+				<p> &nbsp; 101<br />
+					&nbsp; <u>x<span style="color:red">1</span><span style="color:blue">1</span></u><br />
+					&nbsp; 101 <br />
+					101<span style="color:green">0</span> &nbsp;&lt;-- the <span style="color:green">0</span> here is the placeholder
+				</p>
+				<p> The next step, as with decimal multiplication, is to add. The results from our previous step indicates that we must add <span style="color:green">101</span> and <span style="color:green">1010</span>, the sum of which is 1111. </p>
+				<p> &nbsp; 101<br />
+					&nbsp;<u> x11</u><br />
+					&nbsp; <span style="color:green">101</span> <br />
+					<span style="color:green"><u>1010</u></span><br />
+					1111
+				</p>
+				<br />
+			</div>
+		</div>
+		</section>
+
+		<section class = "vid_container division">
+		<div class = "container">
+			<div class = "row">
+				<div class = "col-md-4">
+				</div>
+				<div class = "col-md-4">
+					<h2 class = "vid_title"> Binary Division</h2>
+				</div>
+				<div class = "col-md-4">
+				</div>
+			</div>
+			<div class = "row">
+		<div class = "col-md-12">
+				<p class = "vid_brief">To divide two numbers, which result is an exact division, we basically need to follow four steps: division, multiplication, subtraction, and next digit.</p>
+		</div>
+			</div>
+			<div class = "row">
+				<div class = "col-md-4">
+		  <div class = "vid_box">
+						<div class = "vid_label"> <h3>6 / 3 </h3> </div>
+						<div class = "vid_overlay overlay_Left">
+						  <div class="vid_text">watch tutorial</div>
+						   <a href = ""><i class="fa fa-play-circle-o"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class = "col-md-4">
+		  <div class = "vid_box">
+						<div class = "vid_label"> <h3> 8 / 4 </h3> </div>
+						<div class = "vid_overlay overlay_Top">
+						  <div class="vid_text">watch tutorial</div>
+						   <a href = ""><i class="fa fa-play-circle-o"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class = "col-md-4">
+		  <div class = "vid_box">
+						<div class = "vid_label"> <h3> 10 / 5 </h3> </div>
+						<div class = "vid_overlay overlay_Right">
+						  <div class="vid_text">watch tutorial</div>
+						   <a href = ""><i class="fa fa-play-circle-o"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class = "binary_desc">
+		<p><strong>Binary division</strong> is almost as easy to calculate as multiplying binary numbers, and involves our knowledge of binary multiplication. Be sure to review binary multiplication first.</p>
+					<p>Let's take for example the division of 1011 into 11.</p>
+					<p> &nbsp; &nbsp; &nbsp; &nbsp;<u> &nbsp; &nbsp; <span style="color:red">11</span></u> &nbsp; R=<span style="color:green">10</span><br />
+						&nbsp;<span style="color:blue">11</span> )1011<br />
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <u>-11</u><br />
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;101<br />
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <u>-11</u><br />
+						&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color:green">10</span> &lt;-- remainder, R
+					</p>
+					<p> To check our answer, we first multiply our divisor <span style="color:blue">11</span> by our quotient <span style="color:red">11</span>. Then we add its' product to the remainder <span style="color:green">10</span>, and compare it to our dividend of 1011. </p>
+					<p> &nbsp; &nbsp; &nbsp;<span style="color:blue">11</span><br />
+						&nbsp; <u>x <span style="color:red">11</span></u><br />
+						&nbsp; &nbsp; &nbsp;11<br />
+						<u>+ 11 &nbsp;</u><br />
+						&nbsp;1001 &nbsp;&lt;-- product of 11 and 11
+					</p>
+					<p> &nbsp;1001<br />
+						&nbsp;<u>+ &nbsp;<span style="color:green">10</span></u><br />
+						&nbsp;1011 &nbsp;&lt;-- sum of product and remainder
+					</p>
+					<p> The sum is equal to our initial dividend, therefore our solution is correct. </p>
+					<br />
+		</div>
+		</section>
+
+		<section class = "vid_container complement">
+		<div class = "container">
+			<div class = "row">
+				<div class = "col-md-3">
+				</div>
+				<div class = "col-md-6">
+					<h2 class = "vid_title"> Binary Complement</h2>
+				</div>
+				<div class = "col-md-3">
+				</div>
+			</div>
+			<div class = "row">
+		<div class = "col-md-12">
+					  <p class = "vid_brief">To get the two's complement negative notation of an integer, you write out the number in binary. You then invert the digits, and add one to the result.</p>
+		</div>
+			</div>
+			<div class = "row">
+				<div class = "col-md-4">
+		  <div class = "vid_box">
+						<div class = "vid_label"> <h3> 2's complement of 7</h3> </div>
+						<div class = "vid_overlay overlay_Left">
+						  <div class="vid_text">watch tutorial</div>
+						   <a href = ""><i class="fa fa-play-circle-o"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class = "col-md-4">
+		  <div class = "vid_box">
+						<div class = "vid_label"> <h3>2's complement of 15</h3> </div>
+						<div class = "vid_overlay overlay_Top">
+						  <div class="vid_text">watch tutorial</div>
+						   <a href = ""><i class="fa fa-play-circle-o"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class = "col-md-4">
+		  <div class = "vid_box">
+						<div class = "vid_label"> <h3> 2's complement of -7 </h3> </div>
+						<div class = "vid_overlay overlay_Right">
+						  <div class="vid_text">watch tutorial</div>
+						   <a href = ""><i class="fa fa-play-circle-o"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class = "binary_desc">
+		</div>
+		</section>
+
+		<section class = "vid_container Shifts">
+		<div class = "container">
+			<div class = "row">
+				<div class = "col-md-3">
+				</div>
+				<div class = "col-md-6">
+					<h2 class = "vid_title"> Bit Shifting</h2>
+				</div>
+				<div class = "col-md-3">
+				</div>
+			</div>
+			<div class = "row">
+		<div class = "col-md-12">
+					  <p class = "vid_brief">To get the two's complement negative notation of an integer, you write out the number in binary. You then invert the digits, and add one to the result.</p>
+		</div>
+			</div>
+			<div class = "row">
+				<div class = "col-md-6">
+		  <div class = "vid_box">
+						<div class = "vid_label"> <h3> Shift Right</h3> </div>
+						<div class = "vid_overlay overlay_Left">
+						  <div class="vid_text">watch tutorial</div>
+						   <a href = ""><i class="fa fa-play-circle-o"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class = "col-md-6">
+		  <div class = "vid_box">
+						<div class = "vid_label"> <h3>Shift Left</h3> </div>
+						<div class = "vid_overlay overlay_Top">
+						  <div class="vid_text">watch tutorial</div>
+						   <a href = ""><i class="fa fa-play-circle-o"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class = "binary_desc">
+		</div>
+		</section>
+
+		<div class="parallax2">
+		<div class="heading-sm">
+		  Binary Arithmetics
+		</div>
+		</div>
+
+		<section class = "dark" id = "sec3">
+		<h2>How it works</h2>
+		<p></p>
+		</section>
+
+		<div class="parallax3">
+
+		</div>
+
+		<section class="dark">
+		<h3>Binary Arithmetics</h3>
+		<div class="two-col">
+			<p>If you feel content, you're satisfied and happy. The content of a book, movie, or song is what it's about: the topic. This word has two main meanings. The first has to do with being pleased and satisfied (feeling content) or making someone else feel happy and at peace with things (contenting them).</p>
+		</div>
+		<div class="two-col">
+			<p>If you feel content, you're satisfied and happy. The content of a book, movie, or song is what it's about: the topic. This word has two main meanings. The first has to do with being pleased and satisfied (feeling content) or making someone else feel happy and at peace with things (contenting them).</p>
+		</div>
+		</section>
+
+		<div class="parallax4">
+
+		</div>
+
+		<script type = "text/javascript">
+		function openNav() {
+		  document.getElementById("myNav").style.height = "100%";
+		}
+
+		function closeNav() {
+		  document.getElementById("myNav").style.height = "0%";
+		}
+		</script>
+
+		<script type = "text/javascript">
+			$(document).ready(function(){
+				// Add smooth scrolling to all links
+				$("a").on('click', function(event) {
+
+					// Make sure this.hash has a value before overriding default behavior
+					if (this.hash !== "") {
+						  // Prevent default anchor click behavior
+						  event.preventDefault();
+
+						  // Store hash
+						  var hash = this.hash;
+
+						  // Using jQuery's animate() method to add smooth page scroll
+						  // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+						  $('html, body').animate({
+							scrollTop: $(hash).offset().top
+						  }, 1000, function(){
+
+								// Add hash (#) to URL when done scrolling (default click behavior)
+								window.location.hash = hash;
+						  });
+					} // End if
+				});
+			});
+		</script>
+		
+		<script  type = "text/javascript">
+			$(document).ready(function(){
+			  $(".butt2").click(function(){
+				$(".Addition").slideToggle("slow");
+				$(".Subtraction").slideUp("slow");
+				$(".multiplication").slideUp("slow");
+				$(".division").slideUp("slow");
+				$(".complement").slideUp("slow");
+				$(".Shitfs").slideUp("slow");
+			  });
+			});
+
+		  $(document).ready(function(){
+			$(".butt3").click(function(){
+				$(".Subtraction").slideToggle("slow");
+				$(".Addition").slideUp("slow");
+				$(".multiplication").slideUp("slow");
+				$(".division").slideUp("slow");
+				$(".complement").slideUp("slow");
+				$(".Shitfs").slideUp("slow");
+			  });
+			});
+
+			$(document).ready(function(){
+			  	$(".butt4").click(function(){
+					$(".multiplication").slideToggle("slow");
+					$(".Subtraction").slideUp("slow");
+					$(".Addition").slideUp("slow");
+					$(".division").slideUp("slow");
+					$(".complement").slideUp("slow");
+					$(".Shitfs").slideUp("slow");;
+			 	 });
+			});
+
+			$(document).ready(function(){
+				$(".butt5").click(function(){
+					$(".division").slideToggle("slow");
+					$(".Subtraction").slideUp("slow");
+					$(".multiplication").slideUp("slow");
+					$(".Addition").slideUp("slow");
+					$(".complement").slideUp("slow");
+					$(".Shitfs").slideUp("slow");
+				});
+			});
+
+			$(document).ready(function(){
+			  	$(".butt6").click(function(){
+					$(".complement").slideToggle("slow");
+					$(".Subtraction").slideUp("slow");
+					$(".multiplication").slideUp("slow");
+					$(".division").slideUp("slow");
+					$(".Addition").slideUp("slow");
+					$(".Shitfs").slideUp("slow");
+			  	});
+			});
+
+		  $(document).ready(function(){
+			  $(".butt7").click(function(){
+					$(".Shifts").slideToggle("slow");
+					$(".Subtraction").slideUp("slow");
+					$(".multiplication").slideUp("slow");
+					$(".division").slideUp("slow");
+					$(".complement").slideUp("slow");
+					$(".Addition").slideUp("slow");
+			  });
+			});
+		</script>
+		
+    </body>
+</html>
