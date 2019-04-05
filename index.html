@@ -4,35 +4,26 @@
 		<title> Binary Arithmetics </title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<meta name= "author" content= "Lee Daniel">
 
-		<link href='https://fonts.googleapis.com/css?family=Aladin' rel='stylesheet'>
 		<link rel="stylesheet" type="text/css" href="reset.css">
 
 		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="Css/bootstrap.min.css">
-
-		<link href="https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei" rel="stylesheet">
-
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="Css/bootstrap.validate.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		
 		<link href="https://fonts.googleapis.com/css?family=Capriola|Open+Sans|Righteous|Roboto" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Exo:900" rel="stylesheet">
-
-		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
-		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"> </script>
-
-		<!-- jQuery library -->
+		
+  		<!-- jQuery library -->
 		<script src="Js/jquery-3.3.1.min.js"></script>
 
-		<!-- Latest compiled JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-		<!-- Latest compiled JavaScript -->
-		<script src="Js/validator.js"></script>		
-
+  		<script type="text/javascript" src="Js/bootstrap.validate.min.js"> </script>
+		
 		<script src = "js/modernizr.custom.js"></script>
 
-		
 
 		<style media="screen">
 
@@ -544,9 +535,6 @@
 			input[type = "text"]{
 				box-sizing: border-box;
 				box-shadow: none;
-				outline: none;
-				border: none;
-				border-bottom: 2px solid #fff;
 			}
 
 			.control-label{
@@ -554,6 +542,20 @@
 				font-family: Roboto, sans-serif;
 				font-size: 1.5em;
 				font-weight: 600;
+			}
+
+			.comp_desc{
+				 background-color: rgba(0, 0, 0, 0.6); 
+				 border: 1px solid rgba(255, 255, 255, 0.7); 
+				 width: 25%;
+				 border-radius: 25px;
+				 padding-left: 2%;
+				 line-height: 40px;
+			}
+
+			#arithmetic_test .form-horizontal .has-feedback .form-control-feedback {
+				top: 0;
+				right: -30px;
 			}
 
 		</style>
@@ -1062,6 +1064,37 @@
 			</div>
 			<hr>
 			<div class = "binary_desc">
+				<h1 style = "text-align: center;"> 1’s and 2’s complement of a Binary Number</h1>
+				<br>
+				<br>
+				<p>1’s complement of a binary number is another binary number obtained by toggling all bits in it, i.e., transforming the 0 bit to 1 and the 1 bit to 0.</p>
+				<p >Example.:</p>
+				<br>
+				<div class = "comp_desc">
+					<i>1's complement of "0111" is "1000"</i>
+					<br>
+					<i>1's complement of "1100" is  "0011"</i> 
+				</div>
+
+				<br/>
+				<br>
+				<br>
+				<p>2’s complement of a binary number is 1 added to the 1’s complement of the binary number.</p>
+				<p>Examples:</p>
+				<br/>
+				<div class = "comp_desc">
+					<i>2's complement of "0111" is  "1001"</i>
+					<br>
+					<i>2's complement of "1100" is  "0100" </i>
+				</div>
+				<br/>
+
+				<p>For one’s complement, we simply need to flip all bits.</p>
+				<br/>
+
+				<p>For 2’s complement, we first find one’s complement. We traverse the one’s complement starting from LSB (least significant bit), and look for 0. We flip all 1’s (change to 0) until we find a 0. Finally, we flip the found 0. For example, 2’s complement of “01000” is “11000” (Note that we first find one’s complement of 01000 as 10111).   If there are all 1’s (in one’s complement), we add an extra 1 in the string. For example, 2’s complement of “000” is “1000” (1’s complement of “000” is “111”).</p>
+				
+				<br/>
 			</div>
 		</section>
 
@@ -1120,6 +1153,128 @@
 			</div>
 			<hr>
 			<div class = "binary_desc">
+				<h1 style = "text-align: center; font-weight: 900;">   Bit Shifting</h1>
+				<br>
+				<br>
+				<br>
+
+				<p> A <strong>bit shift</strong> moves each digit in a number's binary representation left or right.</p>
+				<br>
+				<br>
+
+				<h3><strong> Left Shifts </strong>	</h3>
+				<br>
+				<p> When shifting left, the most-significant bit is lost, and a <span math="">0</span> bit is inserted on the other end. </p>
+				<br>
+
+				<div class="clearfix"></div>
+				<div class="clearfix"></div>
+				<div class="clearfix"></div>
+				<div class="clearfix"></div>
+				<div class = "comp_desc" code-block="concept__bit-shift__left-shift-zero-on-end" language="none" translation-highlighting="static" actual-language="none">
+					<i>0010 &lt;&lt; 1  &#8594;  0100</i>
+					<br>
+					<i>0010 &lt;&lt; 2  &#8594;  1000</i>
+				</div>
+				<br>
+				<p> A single left shift multiplies a binary number by 2: </p>
+				
+				<div class = "comp_desc" code-block="concept__bit-shift__single-left-shift-multiplies-by-two" language="none" translation-highlighting="static" actual-language="none">
+					<i>0010 &lt;&lt; 1  &#8594;  0100</i>
+					<br>
+					<br>
+					<i>0010 is 2</i>
+					<br>
+					<i>0100 is 4</i>
+				</div>
+
+				<br>
+				<h3> <strong>   Logical Right Shifts </strong>	</h3>
+				<br>
+				<p> When shifting right with a <strong>logical right shift</strong>, the least-significant bit is lost and a <span math="">0</span> is inserted on the other end. </p>
+				
+				<div code-block="concept__bit-shift__logical-right-shift-zero-on-end" language="none" translation-highlighting="static" actual-language="none">
+					<i>1011 &gt;&gt;&gt; 1  &#8594;  0101</i>
+					<br>
+					<i>1011 &gt;&gt;&gt; 3  &#8594;  0001</i>
+				</div>
+				<p> For positive numbers, a single logical right shift divides a number by 2, throwing out any remainders. </p>
+				<br>
+				
+				<div class = "comp_desc" code-block="concept__bit-shift__single-right-shift-divides-by-two" language="none" translation-highlighting="static" actual-language="none">
+					<i>0101 &gt;&gt;&gt; 1  &#8594;  0010 </i>
+					<br>
+					<br>
+
+					<i>0101 is 5</i>
+						<br>
+					<i>0010 is 2</i>
+				</div>
+				<br>
+				<br>
+
+
+				<h3> <strong>  Arithmetic Right Shifts </strong></h3>
+				<br>
+				<p>
+				    When shifting right with an <strong>arithmetic right
+				    shift</strong>, the least-significant bit is lost and the
+				    most-significant bit is <em>copied</em>.
+				</p>
+				<br>
+				<div class="clearfix"></div>
+				<div class="clearfix"></div>
+				<div class="clearfix"></div>
+				<div class="clearfix"></div>
+				<div class = "comp_desc" code-block="concept__bit-shift__arithmetic-right-shift" language="none" translation-highlighting="static" actual-language="none">
+					<i>1011 &gt;&gt; 1  &#8594;  1101</i>
+					<br>
+					<i>1011 &gt;&gt; 3  &#8594;  1111</i>
+					<br>
+					<i>0011 &gt;&gt; 1  &#8594;  0001</i>
+					<br>
+					<i>0011 &gt;&gt; 2  &#8594;  0000</i>
+				</div>
+				<p>
+				    The first two numbers had a <span math="">1</span> as the most
+				    significant bit, so more <span math="">1</span>'s were inserted
+				    during the shift. The last two numbers had a <span math="">0</span>
+				    as the most significant bit, so the shift inserted
+				    more <span math="">0</span>'s.
+				</p>
+				<p>
+				    If a number is encoded using
+				    <a href="/concept/binary-numbers#twos-complement">
+				        two's complement,
+				    </a> then an arithmetic right shift preserves the number's sign,
+				    while a logical right shift makes the number positive.
+				</p>
+				<div class="clearfix"></div>
+				<div class="clearfix"></div>
+				<div class="clearfix"></div>
+				<div class="clearfix"></div>
+				<div class = "comp_desc" code-block="concept__bit-shift__arithmetic-right-shift-sign-preserve" language="none" translation-highlighting="static" actual-language="none">
+					<i>1011 &gt;&gt; 1  &#8594;  1101</i>
+					<br>
+					<br>
+				    <i>1011 is -5</i>
+				    <br>
+				    <i>1101 is -3</i>
+					<br>
+					<br>
+
+					<i>1111 &gt;&gt;&gt; 1  &#8594;  0111</i>
+					<br><br>
+				    <i>1111 is -1</i>
+				    <br>
+				    <i>0111 is  7</i>
+				</div>
+				<p>
+				    Languages handle arithmetic and logical right shifting in
+				    different ways. <span words="concept__bit-shift__language-right-shifts">Java provides two right shift operators: &gt;&gt; does
+				                an <em>arithmetic</em> right shift and &gt;&gt;&gt;
+				                does a <em>logical</em> right shift.</span>
+				</p>
 			</div>
 		</section>
 
@@ -1195,52 +1350,40 @@
 				</div>
 			</div>
 			
-			<form class="form-horizontal form_design" role ="form" data-toggle = "validator">
+			<form id = "add" class="form-horizontal">
 				<div class="form-group">
-					<label class="control-label col-sm-4" for="Exercise"> 1011 + 0101:</label>
+					<label class="control-label col-sm-4"> 1011 + 0101:</label>
 					<div class="col-sm-3">
-						<div class="input-group has-feedback">
-							<input type="text" class="form-control" id="Exer" placeholder="Enter Answer" data-error ="Please try again" required>
-						</div>
-						<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-					</div>
-					<div class="col-sm-5">
+						<input type="text" class="form-control" name = "num" placeholder="Enter Answer"> 
+						<div id="messages"></div>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-sm-4" for="Exercise"> 1011 + 0101:</label>
+					<label class="control-label col-sm-4"> 1011 + 0101:</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control" id="Exer" placeholder="Enter Answer" required>
-					</div>
-					<div class="col-sm-5">
+						<input type="text" class="form-control"  name = "num"  placeholder="Enter Answer">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-sm-4" for="Exercise"> 1011 + 0101:</label>
+					<label class="control-label col-sm-4"> 1011 + 0101:</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control" id="Exer" placeholder="Enter Answer" required>
-					</div>
-					<div class="col-sm-5">
+						<input type="text" class="form-control"  name = "num" id="Exer" placeholder="Enter Answer">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-sm-4" for="Exercise"> 1011 + 0101:</label>
+					<label class="control-label col-sm-4"> 1011 + 0101:</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control" id="Exer" placeholder="Enter Answer" required>
-					</div>
-					<div class="col-sm-5">
+						<input type="text" class="form-control"  name = "num" placeholder="Enter Answer">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-sm-4" for="Exercise"> 1011 + 0101:</label>
+					<label class="control-label col-sm-4 col-lg-4 col-md-4"> 1011 + 0101:</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control" id="Exer" placeholder="Enter Answer" required>
-					</div>
-					<div class="col-sm-5">
+						<input type="text" class="form-control"  name = "num" placeholder="Enter Answer">
 					</div>
 				</div>
 				<hr>
@@ -1647,6 +1790,67 @@
 					$(".com_test").slideUp("slow");
 					$(".add_test").slideUp("slow");
 			  });
+			});
+		</script>
+
+		<script>
+			$(document).ready(function() {
+				$('#add').bootstrapValidator({
+					message: '#messages',
+					feedbackIcons: {
+						valid: 'glyphicon glyphicon-ok',
+						invalid: 'glyphicon glyphicon-remove',
+						validating: 'glyphicon glyphicon-refresh'
+					},
+					// Since the Bootstrap Button hides the radio and checkbox
+					// We exclude the disabled elements only
+					fields: {
+						name: {
+							validators: {
+								notEmpty: {
+									message: 'Your full name is required and cannot be empty'
+								},
+								regexp: {
+									regexp: /^[a-z\s]+$/i,
+									message: 'The full name can consist of alphabetical characters and spaces only'
+								},
+								stringLength: {
+									min: 2,
+									message: 'Your name should be longer than two characters'
+								}
+							}
+						},
+						email: {
+							validators: {
+								notEmpty: {
+									message: 'An email address is required and cannot be empty'
+								},
+								emailAddress: {
+									message: 'This email address is not valid'
+								}
+							}
+						},
+						num:{
+							validators:{
+								notEmpty:{
+									message: 'If you can"t answer contact Dr Als for a solution'
+								},
+								stringLength: {
+									min: 4,
+									max: 10,
+									message: 'Binary number is not the correct length'
+								},
+								between:{
+									inclusive: true,
+									min: 0,
+									max: 1,
+									message: 'Invalid bit, only 1 or 0'
+								},
+							}
+						}
+					}
+
+				});
 			});
 		</script>
 		
