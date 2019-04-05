@@ -12,6 +12,7 @@
 
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 		<link rel="stylesheet" href="Css/bootstrap.validate.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		
@@ -556,6 +557,16 @@
 			#arithmetic_test .form-horizontal .has-feedback .form-control-feedback {
 				top: 0;
 				right: -30px;
+			}
+
+			form{	
+				margin: 0;
+				padding: 0;
+			}
+
+			section{
+				padding: 0;
+				margin: 0;
 			}
 
 		</style>
@@ -1349,44 +1360,36 @@
 					</div>
 				</div>
 			</div>
-			
+			<hr>
 			<form id = "add" class="form-horizontal">
 				<div class="form-group">
-					<label class="control-label col-sm-4"> 1011 + 0101:</label>
+					<label class="control-label col-sm-4"> 101 + 11:</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control" name = "num" placeholder="Enter Answer"> 
+						<input type="text" class="form-control" id ="numa" name = "num" placeholder="Enter Answer"> 
 						<div id="messages"></div>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-sm-4"> 1011 + 0101:</label>
+					<label class="control-label col-sm-4"> 111 + 111:</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control"  name = "num"  placeholder="Enter Answer">
+						<input type="text" class="form-control"  id ="numa" name = "num"  placeholder="Enter Answer">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label class="control-label col-sm-4"> 1011 + 0101:</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control"  name = "num" id="Exer" placeholder="Enter Answer">
+						<input type="text" class="form-control" id ="numa" name = "num" id="Exer" placeholder="Enter Answer">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-sm-4"> 1011 + 0101:</label>
+					<label class="control-label col-sm-4"> 11011 + 11010:</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control"  name = "num" placeholder="Enter Answer">
+						<input type="text" class="form-control"  id ="numa" name = "num" placeholder="Enter Answer">
 					</div>
 				</div>
-
-				<div class="form-group">
-					<label class="control-label col-sm-4 col-lg-4 col-md-4"> 1011 + 0101:</label>
-					<div class="col-sm-3">
-						<input type="text" class="form-control"  name = "num" placeholder="Enter Answer">
-					</div>
-				</div>
-				<hr>
 			</form>
 		</section>
 
@@ -1408,6 +1411,37 @@
 				</div>
 			</div>
 			<hr>
+			<form id = "add" class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-4"> 101 - 11:</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control" id ="numa" name = "num" placeholder="Enter Answer"> 
+						<div id="messages"></div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-4"> 111  111:</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control"  id ="numa" name = "num"  placeholder="Enter Answer">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-4"> 1011 - 0101:</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control" id ="numa" name = "num" id="Exer" placeholder="Enter Answer">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-4"> 11011 - 11010:</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control"  id ="numa" name = "num" placeholder="Enter Answer">
+					</div>
+				</div>
+				<hr>
+			</form>
 		</section>
 
 		<section class = "vid_container mul_test">
@@ -1428,6 +1462,36 @@
 				</div>
 			</div>
 			<hr>
+			<form id = "add" class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-4"> 110 * 11:</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control" id ="numa" name = "num" placeholder="Enter Answer"> 
+						<div id="messages"></div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-4"> 100010 * 1100:</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control"  id ="numa" name = "num"  placeholder="Enter Answer">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-4"> 1010 * 0101:</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control" id ="numa" name = "num" id="Exer" placeholder="Enter Answer">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-4"> 1110 * 111:</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control"  id ="numa" name = "num" placeholder="Enter Answer">
+					</div>
+				</div>
+			</form>
 		</section>
 
 		<section class = "vid_container div_test">
@@ -1448,6 +1512,36 @@
 				</div>
 			</div>
 			<hr>
+			<form id = "add" class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-4"> 110 / 11:</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control" id ="numa" name = "num" placeholder="Enter Answer"> 
+						<div id="messages"></div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-4"> 100010 / 1100:</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control"  id ="numa" name = "num"  placeholder="Enter Answer">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-4"> 1010 / 0101:</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control" id ="numa" name = "num" id="Exer" placeholder="Enter Answer">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-4"> 1110 / 111:</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control"  id ="numa" name = "num" placeholder="Enter Answer">
+					</div>
+				</div>
+			</form>
 		</section>
 
 		<section class = "vid_container com_test">
@@ -1468,6 +1562,47 @@
 				</div>
 			</div>
 			<hr>
+			<form id = "add" class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-4"> 10111:</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control"  id ="numa" name = "num" placeholder="Enter 1's Complement">
+					</div>
+					<div class="col-sm-3">
+						<input type="text" class="form-control"  id ="numa" name = "num" placeholder="Enter 2's Complement">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-4"> 111111:</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control"  id ="numa" name = "num" placeholder="Enter 1's Complement">
+					</div>
+					<div class="col-sm-3">
+						<input type="text" class="form-control"  id ="numa" name = "num" placeholder="Enter 2's Complement">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-4"> 10110101:</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control"  id ="numa" name = "num" placeholder="Enter 1's Complement">
+					</div>
+					<div class="col-sm-3">
+						<input type="text" class="form-control"  id ="numa" name = "num" placeholder="Enter 2's Complement">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-4"> 1101111010:</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control"  id ="numa" name = "num" placeholder="Enter 1's Complement">
+					</div>
+					<div class="col-sm-3">
+						<input type="text" class="form-control"  id ="numa" name = "num" placeholder="Enter 2's Complement">
+					</div>
+				</div>
+			</form>
 		</section>
 
 		<section class = "vid_container shift_test">
@@ -1488,6 +1623,36 @@
 				</div>
 			</div>
 			<hr>
+			<form id = "add" class="form-horizontal">
+				<div class="form-group">
+					<label class="control-label col-sm-4"> <i>00010 &lt;&lt; &#8594;  1</i> :</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control" id ="numa" name = "num" placeholder="Enter Answer"> 
+						<div id="messages"></div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-4"> <i>0010010 &lt;&lt;  &#8594;  1000</i>:</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control"  id ="numa" name = "num"  placeholder="Enter Answer">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-4"> 0101011 &gt;&gt;&gt;  &#8594; 2:</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control" id ="numa" name = "num" id="Exer" placeholder="Enter Answer">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-4"> 10100111 &gt;&gt;&gt;  &#8594; 3:</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control"  id ="numa" name = "num" placeholder="Enter Answer">
+					</div>
+				</div>
+			</form>
 		</section>
 
 		<div class="parallax3">
@@ -1795,6 +1960,7 @@
 
 		<script>
 			$(document).ready(function() {
+				var x = 1000;
 				$('#add').bootstrapValidator({
 					message: '#messages',
 					feedbackIcons: {
@@ -1835,17 +2001,14 @@
 								notEmpty:{
 									message: 'If you can"t answer contact Dr Als for a solution'
 								},
-								stringLength: {
-									min: 4,
-									max: 10,
-									message: 'Binary number is not the correct length'
+								regexp: {
+									regexp: /^[0|1]*[01]$/,
+									message: 'Can only contain 1"s and 0"s'
 								},
-								between:{
-									inclusive: true,
-									min: 0,
-									max: 1,
-									message: 'Invalid bit, only 1 or 0'
-								},
+								different: {
+									compare: '00001',
+									message: 'Wrong Answer'
+								}
 							}
 						}
 					}
